@@ -34,6 +34,7 @@ from model.shiksha import Shiksha
 from model.yellow_pages import YellowPages
 from model.google_map_scrape import GoogleMapScrape
 from model.robust_gdrive_etl_v2 import start_background_etl
+from model.unmatched_data_review import UnmatchedDataReview
 
 # --- Product Models ---
 from model.product_model.amazon_product import AmazonProduct 
@@ -88,6 +89,7 @@ from routes.product_master_route import product_master_bp
 from routes.gdrive_etl_routes.validation_dashboard import validation_dashboard_bp
 from routes.gdrive_etl_routes.dashboard_stats import dashboard_bp
 from routes.report_aggregate_routes import report_aggregate_bp
+from routes.unmatched_data_routes import unmatched_data_bp
 
 # --- Initialize App ---
 load_dotenv(override=True)
@@ -157,6 +159,9 @@ PUBLIC_ROUTES = [
     "/api/report/aggregate",
     "/api/report/health",
     "/api/googlemap_data",
+    "/api/unmatched/counts",
+    "/api/unmatched/list",
+    "/api/unmatched/fix",
 ]
 
 @app.before_request
@@ -196,6 +201,7 @@ app.register_blueprint(validation_dashboard_bp, url_prefix="/validation")
 app.register_blueprint(dashboard_bp, url_prefix="/stats")
 app.register_blueprint(product_master_bp, url_prefix="/product-master")
 app.register_blueprint(report_aggregate_bp)
+app.register_blueprint(unmatched_data_bp, url_prefix="/api/unmatched")
 
 # --- Register Listing & Product Blueprints (Batch) ---
 blueprints_listing = [

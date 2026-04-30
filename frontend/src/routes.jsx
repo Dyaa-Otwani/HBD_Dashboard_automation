@@ -24,6 +24,7 @@ import { Home } from "./pages/dashboard/home";
 import { Profile } from "./pages/dashboard/profile";
 import { Tables } from "./pages/dashboard/tables";
 import { Notifications } from "./pages/dashboard/notifications";
+import UnmatchedDataReview from "./pages/dashboard/unmatched_data_review";
 import ZomatoData from "./componunts/product master data/ZomatoData";
 import CitiesReports from "./componunts/Reports/cities_reports";
 import CategoriesReports from "./componunts/Reports/categories_reports";
@@ -427,6 +428,12 @@ export const routes = [
             name: "Duplicate Data",
             path: "/masterdata/duplicate-data",
             element: <DuplicateData />,
+          },
+          {
+            icon: <TableCellsIcon {...icon} />,
+            name: "Unmatched Data Review",
+            path: "/masterdata/unmatched-data-review",
+            element: <UnmatchedDataReview />,
           }
         ],
       },

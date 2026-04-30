@@ -120,7 +120,9 @@ export function AggregateReport() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatisticsCard title="Total States" value={renderValue(summary.total_states)} color="blue" icon={<GlobeAmericasIcon className="w-6 h-6 text-white" />} />
           <StatisticsCard title="Matched States" value={renderValue(summary.matched_states)} color="green" icon={<CheckCircleIcon className="w-6 h-6 text-white" />} />
-          <StatisticsCard title="Unmatched States" value={renderValue(summary.unmatched_states)} color="red" icon={<XCircleIcon className="w-6 h-6 text-white" />} />
+          <Link to="/dashboard/masterdata/unmatched-data-review?type=state">
+            <StatisticsCard title="Unmatched States" value={renderValue(summary.unmatched_states)} color="red" icon={<XCircleIcon className="w-6 h-6 text-white" />} />
+          </Link>
         </div>
       </section>
 
@@ -135,7 +137,25 @@ export function AggregateReport() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatisticsCard title="Total Cities" value={renderValue(summary.total_cities)} color="emerald" icon={<MapPinIcon className="w-6 h-6 text-white" />} />
           <StatisticsCard title="Matched Cities" value={renderValue(summary.matched_cities)} color="teal" icon={<CheckCircleIcon className="w-6 h-6 text-white" />} />
-          <StatisticsCard title="Unmatched Cities" value={renderValue(summary.unmatched_cities)} color="deep-orange" icon={<XCircleIcon className="w-6 h-6 text-white" />} />
+          <Link to="/dashboard/masterdata/unmatched-data-review?type=city">
+            <StatisticsCard title="Unmatched Cities" value={renderValue(summary.unmatched_cities)} color="deep-orange" icon={<XCircleIcon className="w-6 h-6 text-white" />} />
+          </Link>
+        </div>
+      </section>
+
+      {/* --- AREA COVERAGE --- */}
+      <section>
+        <div className="flex items-center justify-between mb-4">
+          <Typography variant="h5" color="blue-gray" className="font-black flex items-center gap-2">
+            <MapPinIcon className="h-6 w-6 text-cyan-500" /> Area Coverage
+          </Typography>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <StatisticsCard title="Total Areas" value={renderValue(summary.total_areas)} color="cyan" icon={<MapPinIcon className="w-6 h-6 text-white" />} />
+          <StatisticsCard title="Matched Areas" value={renderValue(summary.matched_areas)} color="light-blue" icon={<CheckCircleIcon className="w-6 h-6 text-white" />} />
+          <Link to="/dashboard/masterdata/unmatched-data-review?type=area">
+            <StatisticsCard title="Unmatched Areas" value={renderValue(summary.unmatched_areas)} color="blue" icon={<XCircleIcon className="w-6 h-6 text-white" />} />
+          </Link>
         </div>
       </section>
 
@@ -150,7 +170,9 @@ export function AggregateReport() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatisticsCard title="Total Categories" value={renderValue(summary.total_categories)} color="indigo" icon={<TagIcon className="w-6 h-6 text-white" />} />
           <StatisticsCard title="Matched Categories" value={renderValue(summary.matched_categories)} color="deep-purple" icon={<CheckCircleIcon className="w-6 h-6 text-white" />} />
-          <StatisticsCard title="Unmatched Categories" value={renderValue(summary.unmatched_categories)} color="pink" icon={<XCircleIcon className="w-6 h-6 text-white" />} />
+          <Link to="/dashboard/masterdata/unmatched-data-review?type=business_category">
+            <StatisticsCard title="Unmatched Categories" value={renderValue(summary.unmatched_categories)} color="pink" icon={<XCircleIcon className="w-6 h-6 text-white" />} />
+          </Link>
         </div>
       </section>
 

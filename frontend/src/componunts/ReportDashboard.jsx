@@ -216,9 +216,11 @@ export function ReportDashboard() {
                   <XCircleIcon className="h-5 w-5 text-red-500" />
                   <Typography className="text-gray-600 font-medium">Errors</Typography>
                 </div>
-                <Typography className="font-bold text-red-500 bg-red-50 px-2 py-0.5 rounded cursor-pointer hover:bg-red-100 transition-colors" title="Click to view city errors">
-                  {unmatchedCities}
-                </Typography>
+                <Link to="/dashboard/masterdata/unmatched-data-review?type=city">
+                  <Typography className="font-bold text-red-500 bg-red-50 px-2 py-0.5 rounded cursor-pointer hover:bg-red-100 transition-colors" title="Click to view city errors">
+                    {unmatchedCities}
+                  </Typography>
+                </Link>
               </div>
               <Progress value={Math.round((matchCities / (matchCities + unmatchedCities || 1)) * 100)} color="green" className="bg-red-100" />
               <Typography className="text-xs text-center mt-3 text-gray-500">Fix the {unmatchedCities} city errors in the master data</Typography>
@@ -242,7 +244,9 @@ export function ReportDashboard() {
                   <div>
                     <div className="flex justify-between mb-1">
                       <Typography className="text-sm font-medium text-gray-600">Unmatched (New Categories)</Typography>
-                      <Typography className="text-sm font-bold text-orange-600">{unmatchedCategories}</Typography>
+                      <Link to="/dashboard/masterdata/unmatched-data-review?type=business_category">
+                        <Typography className="text-sm font-bold text-orange-600 hover:text-orange-800 cursor-pointer underline">{unmatchedCategories}</Typography>
+                      </Link>
                     </div>
                     <Progress value={Math.round((unmatchedCategories / (matchCategories + unmatchedCategories || 1)) * 100)} color="orange" className="bg-gray-100" />
                   </div>
